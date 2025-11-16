@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mid Section</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .mid {
+        padding: 40px;
+        background: #fff;
+    }
+
+    /* GRID (default large → 4 cards) */
+    .mid > div {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    /* CARD */
+    .card {
+        padding: 20px;
+        border: 1px solid #ddd;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .card img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+        margin: 5px 0;
+    }
+
+    .card p {
+        font-size: 14px;
+        color: #444;
+        margin: 5px 0 10px;
+    }
+
+    .card a {
+        text-decoration: none;
+        color: #d60000;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    /* MEDIA QUERIES */
+    /* Medium screens → 2 per row */
+    @media (max-width: 900px) {
+        .mid > div {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Small screens → 1 per row */
+    @media (max-width: 600px) {
+        .mid > div {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<section class="mid">
+    <h2 style="margin-bottom: 20px;">Explore</h2>
+
+    <div>
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+
+        <div class="card">
+            <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-21/Screenshot%202022-12-21%20at%203.06.17%20PM_590391.png>
+            <h3>OUR MENU</h3>
+            <p>Explore our range of delicious pizzas , delivered in 30 minutes..</p>
+            <a href="#">DISCOVER PIZZA</a>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
