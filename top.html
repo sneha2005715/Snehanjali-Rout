@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Section Grid</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* TOP SECTION */
+    .top {
+        background: #e32320;
+        padding: 30px;
+    }
+
+    /* GRID LAYOUT */
+    .top > div {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);   /* Large screens */
+        gap: 25px;
+    }
+
+    /* CARD */
+    .card {
+        background: rgb(243, 237, 237);
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .card h3 {
+        margin: 10px 0 5px;
+    }
+
+    .card p {
+        font-size: 14px;
+        color: #444;
+    }
+
+    .card a {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 14px;
+        background: #ff0000;
+        color: rgb(8, 185, 82);
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    /* MEDIA QUERIES */
+
+    /* Medium screens → 2 cards per row */
+    @media (max-width: 900px) {
+        .top > div {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Small screens → 1 card per row */
+    @media (max-width: 600px) {
+        .top > div {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- TOP SECTION -->
+    <section class="top">
+        <div>
+            <div class="card">
+                <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png>
+                <h3>VEG PIZZA</h3>
+                <p>A delight for veggies lovers! choose from our wide range of delicious vegitarian pizzas it's softer and tastier..</p>
+                <a href="#">VIEW ALL</a>
+            </div>
+
+            <div class="card">
+                <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png>
+                <h3>OUR MENU</h3>
+                <p>Indulge in mouth-watering taste of pizza mania pizza, perfect answer to all yours food craving !!</p>
+                <a href="#">VIEW ALL</a>
+            </div>
+
+            <div class="card">
+                <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png>
+                <h3>OUR MENU</h3>
+                <p>Choose your favourite non-veg pizzas from the dominos's pizza menu.Get-fresh non-veg pizza with your choice of crust and topping </p>
+                <a href="#">VIEW ALL</a>
+            </div>
+
+            <div class="card">
+                <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png>
+                
+            </div>
+
+            <div class="card">
+                <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png>
+                
+            </div>
+
+            <div class="card">
+                <img src=https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-12-22/Screenshot%202022-12-22%20at%208.37.04%20AM_353938.png>
+                
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
