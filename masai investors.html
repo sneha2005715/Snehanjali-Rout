@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Founders Grid Layout</title>
+
+<style>
+/* Container for the full layout */
+.founders-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+/* Each profile card */
+.founder-card {
+  width: 250px;
+  border: 2px solid #ddd;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Profile image */
+.founder-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+/* Name */
+.founder-card h3 {
+  margin: 10px 0 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Role */
+.founder-card p.role {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Company logo */
+.founder-card img.logo {
+  width: 60px;
+  margin-top: 8px;
+}
+
+/* Combinators Examples */
+
+/* Adjacent sibling selector */
+.founder-card + .founder-card {
+  border-color: #bbb; 
+}
+
+/* Child selector */
+.founder-card > h3 {
+  color: #333;
+}
+
+/* Descendant selector */
+.founder-card p {
+  font-family: Arial, sans-serif;
+}
+
+</style>
+</head>
+<body>
+
+<div class="founders-container">
+
+  <div class="founder-card">
+    <img src=https://cdn.masaischool.com/masai-website/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg alt="Founder 1">
+    <h3>Vijay Shekhar Sharma</h3>
+    <p class="role">Founder & CEO</p>
+    <img class="logo" src=https://cdn.masaischool.com/masai-website/paytm_rect_06df45a24f.svg alt="Company Logo">
+  </div>
+
+  <div class="founder-card">
+    <img src=https://cdn.masaischool.com/masai-website/Rectangle_427_637d69bb57.png alt="Founder 2">
+    <h3>Kunal Shah</h3>
+    <p class="role">Founder </p>
+    <img class="logo" src= https://cdn.masaischool.com/masai-website/cred_0a47d7b4f8.png alt="Company Logo">
+  </div>
+
+  <div class="founder-card">
+    <img src=https://cdn.masaischool.com/masai-website/amrish_rau_pine_labs_144e5e587c.jpg alt="Founder 3">
+    <h3>Amrish Rau</h3>
+    <p class="role"> CEO</p>
+    <img class="logo" src=https://cdn.masaischool.com/masai-website/pine_labs_0aa2407434.png alt="Company Logo">
+  </div>
+
+  <div class="founder-card">
+    <img src=https://cdn.masaischool.com/masai-website/farid_ahsan_sharechat_1251f28141.png alt="Founder 4">
+    <h3>Farid Ahsam</h3>
+    <p class="role">CO-Founder & CEO</p>
+    <img class="logo" src=https://cdn.masaischool.com/masai-website/sharechat_rect_73d95cd4e1.svg alt="Company Logo">
+  </div>
+
+  <div class="founder-card">
+    <img src=https://cdn.masaischool.com/masai-website/Sharda_Balaji_Novojuris_2a206f2f88.jpg alt="Founder 5">
+    <h3>Sharda Balaji</h3>
+    <p class="role">Founder </p>
+    <img class="logo" src=https://cdn.masaischool.com/masai-website/novojuris_ad9499f5b9.svg alt="Company Logo">
+  </div>
+
+  <div class="founder-card">
+    <img src=https://cdn.masaischool.com/masai-website/sunil_rao_amazon_dfd2daa06d.jpeg alt="Founder 6">
+    <h3> Sunil Rao</h3>
+    <p class="role">Country head strategy and C..</p>
+    <img class="logo" src=https://cdn.masaischool.com/masai-website/amazon_rect_9e0cd101b1.svg alt="Company Logo">
+  </div>
+
+</div>
+
+</body>
+</html>
