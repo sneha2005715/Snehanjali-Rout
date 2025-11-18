@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaSai Calculator</title>
+    
+    <style>
+        /*
+        ==================================================
+        CSS STYLING (Box Model, Flexbox, Grid, Combinators)
+        ==================================================
+        */
+        
+        /* Box Model Reset */
+        * {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Flexbox for Body (Centering) */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4; 
+            font-family: Arial, sans-serif;
+        }
+
+        /* Calculator Container (Box Model) */
+        .calculator {
+            width: 280px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #fff; /* White calculator body */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #008080; /* Teal/cyan color */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Display Area (Box Model) */
+        .display {
+            width: 100%;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            color: #333;
+            font-size: 2em;
+            text-align: right;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            min-height: 60px;
+            overflow: hidden;
+            /* Flexbox to vertically align content if needed */
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        /* --- CSS GRID for Buttons --- */
+        .buttons {
+            display: grid;
+            /* 4 columns, each taking an equal fraction of the space */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 10px; /* Space between buttons */
+        }
+
+        /* Base Button Styling (Box Model) */
+        button {
+            height: 50px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #e9e9e9; /* Light gray default background for number buttons */
+            color: #333;
+            transition: background-color 0.1s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #dcdcdc;
+        }
+        
+        /* 1. Class Selector for Black Operators */
+        .black-op {
+            background-color: #000;
+            color: #fff;
+        }
+        .black-op:hover {
+            background-color: #333;
+        }
+
+        /* 2. ADJACENT SIBLING COMBINATOR (A + B) 
+           Target button '0' (class .number) immediately after 'C' (class .clear) 
+        */
+        .clear + .number {
+            background-color: #fff; /* White background for '0' */
+            color: #333;
+        }
+
+        /* 3. GENERAL SIBLING COMBINATOR (A ~ B) 
+           Target all button siblings after 'C' ('0', '=', '/') and give them a border.
+        */
+        .clear ~ button {
+            border: 1px solid #ccc; 
+        }
+
+        /* 4. The specific red 'C' button */
+        .red-bg {
+            background-color: #ff0000;
+            color: #fff;
+            border: none !important; /* Override sibling border */
+        }
+        .red-bg:hover {
+            background-color: #cc0000;
+        }
+
+        /* The equals button has a white background */
+        .equals {
+            background-color: #fff;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h2>MaSai Calculator</h2>
+        
+        <div class="display" id="display">0</div>
+
+        <div class="buttons">
+            <button class="number">1</button>
+            <button class="number">2</button>
+            <button class="number">3</button>
+            <button class="operator add black-op">+</button>
+
+            <button class="number">4</button>
+            <button class="number">5</button>
+            <button class="number">6</button>
+            <button class="operator subtract black-op">-</button>
+
+            <button class="number">7</button>
+            <button class="number">8</button>
+            <button class="number">9</button>
+            <button class="operator multiply black-op">x</button>
+
+            <button class="clear action red-bg">C</button>
+            <button class="number zero">0</button>
+            <button class="equals result">=</button>
+            <button class="operator divide black-op">/</button>
+        </div>
+    </div>
+
+    <script>
+        /*
+        ==================================================
+        JAVASCRIPT FUNCTIONALITY
+        ==================================================
+        */
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const display = document.getElementById('display');
+            const buttons = document.querySelectorAll('.buttons button');
+            let currentInput = '0';
+            let previousInput = null;
+            let operator = null;
+            let waitForNewInput = false;
+
+            const updateDisplay = (value) => {
+                // Limit display length
+                display.textContent = value.toString().substring(0, 15);
+            };
+
+            const calculate = (a, op, b) => {
+                a = parseFloat(a);
+                b = parseFloat(b);
+                if (isNaN(a) || isNaN(b)) return;
+                
+                switch (op) {
+                    case '+': return a + b;
+                    case '-': return a - b;
+                    case 'x': return a * b;
+                    case '/': 
+                        if (b === 0) return 'Error';
+                        return a / b;
+                    default: return b;
+                }
+            };
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const buttonValue = button.textContent;
+
+                    // Handle Number Input
+                    if (button.classList.contains('number')) {
+                        if (waitForNewInput) {
+                            currentInput = buttonValue;
+                            waitForNewInput = false;
+                        } else {
+                            if (currentInput === '0') {
+                                currentInput = buttonValue;
+                            } else {
+                                currentInput += buttonValue;
+                            }
+                        }
+                    } 
+                    
+                    // Handle Operator Input (+, -, x, /)
+                    else if (button.classList.contains('operator')) {
+                        if (operator && !waitForNewInput) {
+                            const result = calculate(previousInput, operator, currentInput);
+                            if (result === 'Error') {
+                                currentInput = 'Error';
+                                previousInput = null;
+                                operator = null;
+                            } else {
+                                currentInput = result.toString();
+                                previousInput = currentInput;
+                            }
+                        } else {
+                            previousInput = currentInput;
+                        }
+                        operator = buttonValue;
+                        waitForNewInput = true;
+                    } 
+                    
+                    // Handle Equals Button (=)
+                    else if (button.classList.contains('equals')) {
+                        if (previousInput !== null && operator !== null && !waitForNewInput) {
+                            const result = calculate(previousInput, operator, currentInput);
+                            if (result === 'Error') {
+                                currentInput = 'Error';
+                            } else {
+                                currentInput = result.toString();
+                            }
+                            previousInput = null;
+                            operator = null;
+                            waitForNewInput = true;
+                        }
+                    } 
+                    
+                    // Handle Clear (C)
+                    else if (button.classList.contains('clear')) {
+                        currentInput = '0';
+                        previousInput = null;
+                        operator = null;
+                        waitForNewInput = false;
+                    } 
+                    
+                    updateDisplay(currentInput);
+                });
+            });
+
+            updateDisplay(currentInput); 
+        });
+    </script>
+</body>
+</html>
