@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3x3 Color Grid</title>
+  <style>
+    :root{
+      --gap: 14px;
+      --tile-radius: 4px;
+      --tile-font-size: 28px;
+      --tile-padding: 28px;
+      --bg: #f5f6f7;
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--bg);
+      font-family: Inter, system-ui, Arial, sans-serif;
+    }
+
+    .wrap{
+      width: min(760px, 92vw);
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .tile{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(255,255,255,0.95);
+      font-weight:600;
+      font-size: var(--tile-font-size);
+      border-radius: var(--tile-radius);
+      padding: var(--tile-padding);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
+      min-height: 110px;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.12);
+    }
+
+    /* Colors approximate to the image */
+    .c1 { background:#1ec0d9; }  /* cyan - number 1 */
+    .c2 { background:#e24a40; }  /* red   - number 2 */
+    .c3 { background:#1f8fc7; }  /* blue  - number 3 */
+    .c4 { background:#f0c02f; }  /* yellow- number 4 */
+    .c5 { background:#7d4bd6; }  /* purple- number 5 */
+    .c6 { background:#3db24a; }  /* green - number 6 */
+    .c7 { background:#d95d3f; }  /* orange- number 7 */
+    .c8 { background:#1f9b97; }  /* teal  - number 8 */
+    .c9 { background:#3a1b1c; }  /* dark maroon - number 9 */
+
+    /* responsive: increase tile height on larger screens */
+    @media (min-width:700px){
+      .tile { min-height:150px; font-size:32px; padding:40px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid">
+      <!-- Top row (left → right): 7, 5, 2 -->
+      <div class="tile c7">7</div>
+      <div class="tile c5">5</div>
+      <div class="tile c2">2</div>
+
+      <!-- Middle row: 8, 6, 3 -->
+      <div class="tile c8">8</div>
+      <div class="tile c6">6</div>
+      <div class="tile c3">3</div>
+
+      <!-- Bottom row: 9, 1, 4 -->
+      <div class="tile c9">9</div>
+      <div class="tile c1">1</div>
+      <div class="tile c4">4</div>
+    </div>
+  </div>
+</body>
+</html>
